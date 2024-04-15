@@ -20,6 +20,7 @@ class CreateCommentsTable extends Migration
             $table->string("name",30);
             $table->string("email", 320);
             $table->string("comment", 400);
+            $table->string("status", 20)->default("pending");
 
             $table->foreign("product_id")->references("id")->on("products")->onDelete("cascade");
 
