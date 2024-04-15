@@ -6,7 +6,7 @@
                 <img src="{{\App\Helpers\ProductHelper::buildImagePath($product)}}" alt="product_image" class="product_image">
                 <div class="product_data">
                     <div class="product_name_desc">
-                        <p>{{$product->brand->name}}  {{$product->name}}</p>
+                        <p>{{$product->brand->name}}, {{$product->name}}</p>
                         <p>{{$product->description}}</p>
                     </div>
                     <p>{{$product->price}}$</p>
@@ -26,8 +26,9 @@
                         <p>{{$comment->comment}}</p>
                     </div>
                     @endforeach
-                    <form method="POST" action="{{route("add.comment", ["product"=>$product])}}" class="comment">
+                    <form method="POST" action="{{route("add.comment")}}" class="comment">
                         {{csrf_field()}}
+                        <input type="hidden" name="product_id" value="{{$product->id}}">
                         <div class="comment_signature">
                             <input type="text" name="name" placeholder="name">
                             <input type="email" name="email" placeholder="email">
