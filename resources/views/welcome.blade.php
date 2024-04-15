@@ -18,10 +18,15 @@
                 </div>
                 <div id="{{$product->id . "commentContainer"}}" class="comments">
                     @foreach($product->comments as $comment)
-                        <p>{{$comment->name}} {{$comment->email}}</p>
+                    <div class="comment">
+                        <div class="comment_signature">
+                            <p>{{$comment->name}} {{$comment->email}}</p>
+                            <p>{{\Carbon\Carbon::parse($comment->created_at)->format("Y-m-d")}}</p>
+                        </div>
                         <p>{{$comment->comment}}</p>
-                        <p>{{$comment->created_at}}</p>
+                    </div>
                     @endforeach
+
                 </div>
             </div>
 
