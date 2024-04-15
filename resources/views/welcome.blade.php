@@ -26,7 +26,16 @@
                         <p>{{$comment->comment}}</p>
                     </div>
                     @endforeach
+                    <form method="POST" action="{{route("add.comment")}}" class="comment">
+                        {{csrf_field()}}
+                        <div class="comment_signature">
+                            <input type="text" name="name" placeholder="name">
+                            <input type="email" name="email" placeholder="email">
+                        </div>
 
+                        <textarea name="comment" placeholder="comment"></textarea>
+                        <input type="submit" value="send">
+                    </form>
                 </div>
             </div>
 
