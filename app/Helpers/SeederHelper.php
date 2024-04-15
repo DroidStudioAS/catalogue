@@ -4,10 +4,11 @@ namespace App\Helpers;
 
 class SeederHelper{
     const BrandModels = array(
-        0=>"Audi",
-        1=>"Mercedes",
-        2=>"Alfa Romeo",
-        3=>"Lada"
+        0=>"BMW",
+        1=>"Audi",
+        2=>"Mercedes",
+        3=>"Alfa Romeo",
+        4=>"Lada"
     );
     const ProductModels = array(
         0 => array("brand_id" => 1, "name" => "M3", "description" => "Powerful sports sedan with precise handling.", "price" => 60000),
