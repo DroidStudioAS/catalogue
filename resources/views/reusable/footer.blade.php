@@ -1,3 +1,3 @@
 <footer>
-    <p>Footer</p>
+    <p class="app_footer">Footer</p>
 </footer>

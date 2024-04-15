@@ -1,3 +1,3 @@
 <header>
-    <h1>SladIT Car Saloon</h1>
+    <h1 class="app_title">SladIT Car Saloon</h1>
 </header>
