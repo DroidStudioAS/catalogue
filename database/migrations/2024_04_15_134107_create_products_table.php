@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->string("image_path", 15)->default("main.png");
             $table->string("description", 120);
 
-            $table->foreign("brand_id")->references("id")->on("brands")->onDelete("restrict");
+            $table->foreign("brand_id")->references("id")->on("brands")->onDelete("cascade");
 
             $table->timestamps();
         });
