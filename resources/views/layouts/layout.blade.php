@@ -8,6 +8,11 @@
     <title>@yield("title", "Catalogue")</title>
 </head>
 <body>
-@yield("content")
+@include("reusable.header")
+<div class="content_container">
+    @yield("content")
+</div>
+@include("reusable.footer")
+
 </body>
 </html>
