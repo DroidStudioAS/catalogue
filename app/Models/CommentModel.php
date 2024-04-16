@@ -10,4 +10,9 @@ class CommentModel extends Model
     protected $table="comments";
 
     protected $fillable=["product_id","name","email","comment","status"];
+
+    public function product()
+    {
+        return $this->hasOne(ProductModel::class, "id","product_id");
+    }
 }
