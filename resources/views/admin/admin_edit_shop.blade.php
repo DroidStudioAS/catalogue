@@ -1,7 +1,16 @@
 @extends("layouts.layout")
 @section("content")
     <h2>Editing {{$product->brand->name}} {{$product->name}}</h2>
-    <form class="edit_form" action="{{route("admin.shop.edit",["product"=>$product])}}" method="POST">
+    @if($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    <form class="edit_form" action="{{route("admin.shop.edit",["product"=>$product])}}" method="POST"  enctype="multipart/form-data">
         {{csrf_field()}}
         <label for="brand_id">Brand</label>
         <select name="brand_id" class="input_text">
