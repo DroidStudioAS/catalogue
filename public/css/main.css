@@ -78,7 +78,7 @@ html, body {
     font-family: "Inconsolata", monospace;
 
 }
-.comment{
+.comment_even{
     width: 25vw;
     display: flex;
     flex-flow: column nowrap;
@@ -87,6 +87,17 @@ html, body {
     background-color: #718096;
     margin: 5px;
     border-radius: 25px 25px 0 25px;
+    color: white;
+}
+.comment_uneven{
+    width: 25vw;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #718096;
+    margin: 5px;
+    border-radius: 25px 25px 25px 0;
     color: white;
 }
 .comment_form{

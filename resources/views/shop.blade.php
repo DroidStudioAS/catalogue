@@ -41,8 +41,8 @@
                         Show Comments
                     </div>
                     <div id="{{$product->id . "commentContainer"}}" class="comments">
-                        @foreach($product->approvedComments as $comment)
-                            <div class="comment">
+                        @foreach($product->approvedComments as $key=>$comment)
+                            <div class="{{$key%2===0? "comment_even":"comment_uneven"}}">
                                 <div class="comment_signature">
                                     <p>{{$comment->name}}, {{$comment->email}}</p>
                                     <p>{{\Carbon\Carbon::parse($comment->created_at)->format("Y-m-d")}}</p>
