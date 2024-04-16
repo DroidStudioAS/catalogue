@@ -1,5 +1,5 @@
 /****Start Of Global Styles*****/
-.content_container{
+.content_container, .product_container{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -8,6 +8,7 @@
 .app_title, .app_footer{
     text-align: center;
 }
+
 .product_card{
     display: flex;
     flex-flow: column nowrap;
@@ -88,7 +89,7 @@
     position: absolute;
     right: 1vw;
     width: 50px;
-    z-index: 2;
+    z-index: 3;
 }
 .navigation{
     position: fixed;
@@ -102,6 +103,7 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 }
 .nav_item{
     width: 200px;
@@ -116,6 +118,21 @@
 .nav_item :visited{
     text-decoration: none;
     color: white;
+}
+.filters_toggle{
+    position: fixed;
+    right: 1vw;
+    top: 200px;
+    z-index: 1;
+}
+.filters{
+    position: fixed;
+    top: 0;
+    right: -300px;
+    bottom: 0;
+    width: 300px;
+    background-color: #edf2f7;
+
 }
 /****End Of Global Styles*****/
 
