@@ -9,6 +9,9 @@ html, body {
     justify-content: center;
     align-items: center;
 }
+.product_container{
+    align-items: flex-start;
+}
 .header{
     display: flex;
     flex-flow: row nowrap;
