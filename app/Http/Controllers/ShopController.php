@@ -20,4 +20,8 @@ class ShopController extends Controller
         $categories = BrandModel::all();
         return view("shop", compact("products", "categories", "minMaxPrice"));
     }
+
+    public function search(Request $request){
+        dd($request->all());
+    }
 }

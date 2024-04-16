@@ -4,7 +4,7 @@
     <div onclick="toggleFilters()" class="filters_toggle">Search</div>
 
     <div class="filters">
-        <form class="filters" action="">
+        <form class="filters" action="{{route("shop.search")}}" method="GET">
             <label for="brand_id">Brand</label>
             <select name="brand_id" id="brand_id">
                 @foreach($categories as $category)

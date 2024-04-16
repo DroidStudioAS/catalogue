@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", [HomeController::class,"index"])->name("home");
 Route::post("/add/comment",[CommentController::class,"addComment"])->name("add.comment");
 Route::get("/shop", [ShopController::class, "index"])->name("shop");
+Route::get("/shop/search", [ShopController::class,"search"])->name("shop.search");
 //admin routes
 Route::middleware(["auth", AdminMiddleware::class])
     ->prefix("/admin")
