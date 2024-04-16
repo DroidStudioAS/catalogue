@@ -32,5 +32,33 @@
             </div>
         @endforeach
     </div>
+    <div onclick="toggleFilters()" class="filters_toggle">Search</div>
 
+    <div class="filters">
+        <form class="filters" action="{{route("admin.comment.filter")}}" method="GET">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="" class="input_text">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="" class="input_text">
+            <label for="comment">Comment</label>
+            <textarea type="text" name="comment" id="" class="input_textarea"></textarea>
+            <input type="submit">
+        </form>
+    </div>
+
+    <script>
+        let filtersExpanded = false;
+        function toggleFilters(){
+            let right = "0px";
+            if(filtersExpanded){
+                right = "-300px";
+            }
+            $(".filters").animate({
+                right:right
+            },500)
+
+            filtersExpanded=!filtersExpanded;
+            console.log(right);
+        }
+    </script>
 @endsection

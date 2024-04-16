@@ -234,5 +234,18 @@ html, body {
     justify-content: center;
     align-items: center;
 }
+
+.input_textarea{
+    resize: none;
+    width: 200px;
+    height: 10vh;
+
+    padding: 15px;
+    background-color: #7b899d;
+    border-bottom: 2px solid white;
+    color: white;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
 /****End Of Global Styles*****/
 

@@ -29,6 +29,7 @@ Route::middleware(["auth", AdminMiddleware::class])
         Route::get("", [\App\Http\Controllers\admin\CommentController::class, "index"]);
         Route::post("/comment/{comment}",[\App\Http\Controllers\admin\CommentController::class, "toggleCommentStatus"])->name(".comment");
         Route::post("/comment/delete/{comment}",[\App\Http\Controllers\admin\CommentController::class,"deleteComment"])->name(".comment.delete");
+        Route::get("/comment/filter", [\App\Http\Controllers\admin\CommentController::class, "filterComments"])->name(".comment.filter");
     });
 
 Auth::routes();
