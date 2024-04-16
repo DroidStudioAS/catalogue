@@ -130,6 +130,14 @@
     top: 0;
     right: -300px;
     bottom: 0;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding-top: 250px;
+
     width: 300px;
     background-color: #edf2f7;
 

@@ -4,7 +4,23 @@
     <div onclick="toggleFilters()" class="filters_toggle">Search</div>
 
     <div class="filters">
-
+        <form class="filters" action="">
+            <label for="brand_id">Brand</label>
+            <select name="brand_id" id="brand_id">
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+            </select>
+            <label for="name">Model</label>
+            <input type="text" name="name" id="name">
+            <label for="description">Description</label>
+            <textarea name="description" placeholder="description">
+            </textarea>
+            <label for="price">Price</label>
+            <input id="price" type="range" name="price" min="{{$minMaxPrice[0]}}" max="{{$minMaxPrice[1]}}">
+            <span id="priceRange"></span>
+            <input type="submit">
+        </form>
     </div>
 
     <div class="product_container">
@@ -53,6 +69,9 @@
     </div>
     <script>
 
+        $('#price').on('input', function(){
+                $('#priceRange').text($(this).val() + "$");
+        });
         function displayComments(id){
             $("#"+id+"commentContainer").css("display","flex");
         }
