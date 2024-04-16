@@ -44,22 +44,23 @@
                         @foreach($product->approvedComments as $comment)
                             <div class="comment">
                                 <div class="comment_signature">
-                                    <p>{{$comment->name}} {{$comment->email}}</p>
+                                    <p>{{$comment->name}}, {{$comment->email}}</p>
                                     <p>{{\Carbon\Carbon::parse($comment->created_at)->format("Y-m-d")}}</p>
                                 </div>
-                                <p>{{$comment->comment}}</p>
+                                <p>"{{$comment->comment}}"</p>
                             </div>
                         @endforeach
-                        <form method="POST" action="{{route("add.comment")}}" class="comment">
+                        <form method="POST" action="{{route("add.comment")}}" class="comment_form">
+                            <h4>Leave A Comment</h4>
                             {{csrf_field()}}
                             <input type="hidden" name="product_id" value="{{$product->id}}">
                             <div class="comment_signature">
-                                <input type="text" name="name" placeholder="name">
-                                <input type="email" name="email" placeholder="email">
+                                <input class="input_text" type="text" name="name" placeholder="name">
+                                <input class="input_text" type="email" name="email" placeholder="email">
                             </div>
 
-                            <textarea name="comment" placeholder="comment"></textarea>
-                            <input type="submit" value="send">
+                            <textarea class="input_comment" name="comment" placeholder="comment"></textarea>
+                            <input class="input_submit" type="submit" value="Post">
                         </form>
                     </div>
                 </div>

@@ -59,6 +59,8 @@ html, body {
     opacity: 0;
     transition: opacity 1s;
 }
+
+/*Comments Start*/
 .comments_toggle{
     padding: 20px;
     background-color: #1a202c;
@@ -73,6 +75,8 @@ html, body {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    font-family: "Inconsolata", monospace;
+
 }
 .comment{
     width: 25vw;
@@ -82,8 +86,20 @@ html, body {
     align-items: center;
     background-color: #718096;
     margin: 5px;
-    border-radius: 15px;
+    border-radius: 25px 25px 0 25px;
     color: white;
+}
+.comment_form{
+    padding: 30px;
+    width: 24vw;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #718096;
+    border-radius: 15px;
+
+
 }
 .comment_signature{
     width: 25vw;
@@ -92,6 +108,37 @@ html, body {
     justify-content: space-around;
     align-items: center;
 }
+
+.input_text{
+    padding: 15px;
+    background-color: #7b899d;
+    border-bottom: 2px solid white;
+    color: white;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+.input_text::placeholder, .input_comment::placeholder{
+    color: white;
+}
+.input_comment{
+    resize: none;
+    height: 10vh;
+    width: 23vw;
+    background-color: #7b899d;
+    border-bottom: 2px solid white;
+    color: white;
+}
+.input_submit{
+    margin: 8px;
+    background-color: #7b899d;
+    border-bottom: 2px solid white;
+    color: white;
+    padding: 15px;
+    border-radius: 8px 12px 8px 12px;
+    font-size: large;
+}
+/*Comments End*/
+
 .product_card:hover .action_buttons{
     opacity: 1;
 }
