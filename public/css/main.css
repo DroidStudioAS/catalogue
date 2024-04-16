@@ -92,11 +92,11 @@ html, body {
     color: white;
 }
 .comment_even{
-    border-radius: 25px 25px 0 25px;
+    border-radius: 30px 30px 0 30px;
 
 }
 .comment_uneven{
-    border-radius: 25px 25px 25px 0;
+    border-radius: 30px 30px 30px 0;
 }
 .comment_form{
     padding: 30px;
@@ -208,6 +208,24 @@ html, body {
     width: 300px;
     background-color: #edf2f7;
 
+}
+.comment_card_even, .comment_card_uneven{
+    background-color: #2d3748;
+    color: white;
+    width:20vw;
+    margin: 30px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid black;
+}
+.comment_card_even{
+    border-radius: 25% 25% 0 25%;
+}
+.comment_card_uneven{
+    border-radius: 40px 40px 40px 0;
 }
 /****End Of Global Styles*****/
 
