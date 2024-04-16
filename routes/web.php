@@ -28,6 +28,7 @@ Route::middleware(["auth", AdminMiddleware::class])
     ->group(function (){
         Route::get("", [\App\Http\Controllers\admin\CommentController::class, "index"]);
         Route::post("/comment/{comment}",[\App\Http\Controllers\admin\CommentController::class, "toggleCommentStatus"])->name(".comment");
+        Route::post("/comment/delete/{comment}",[\App\Http\Controllers\admin\CommentController::class,"deleteComment"])->name(".comment.delete");
     });
 
 Auth::routes();

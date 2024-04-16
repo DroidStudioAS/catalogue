@@ -19,4 +19,10 @@ class CommentController extends Controller
         $comment->update(["status"=>$statusToSet]);
         return redirect()->back();
     }
+    public function deleteComment(CommentModel $comment){
+        $comment->delete();
+
+        return redirect()->back();
+    }
+
     }

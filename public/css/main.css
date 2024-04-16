@@ -227,5 +227,12 @@ html, body {
 .comment_card_uneven{
     border-radius: 40px 40px 40px 0;
 }
+
+.button_container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
 /****End Of Global Styles*****/
 

@@ -10,16 +10,25 @@
                 <p>Comment: {{$comment->comment}}</p>
                 <p>Status: {{$comment->status}}</p>
 
-                <form action="{{route("admin.comment",["comment"=>$comment])}}" method="POST">
-                    {{csrf_field()}}
-                    <button>
-                        @if($comment->status==="pending")
-                            Approve Comment
-                        @else
-                            Ban Comment
-                        @endif
-                    </button>
-                </form>
+                <div class="button_container">
+                    <form action="{{route("admin.comment",["comment"=>$comment])}}" method="POST">
+                        {{csrf_field()}}
+                        <button>
+                            @if($comment->status==="pending")
+                                Approve Comment
+                            @else
+                                Ban Comment
+                            @endif
+                        </button>
+                    </form>
+                    <form action="{{route("admin.comment.delete",["comment"=>$comment])}}" method="POST">
+                        {{csrf_field()}}
+                        <button>
+                            Delete Comment
+                        </button>
+                    </form>
+                </div>
+
             </div>
         @endforeach
     </div>
