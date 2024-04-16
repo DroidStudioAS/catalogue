@@ -247,5 +247,11 @@ html, body {
     border-radius: 8px;
     margin-bottom: 8px;
 }
+.edit_form{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
 /****End Of Global Styles*****/
 
