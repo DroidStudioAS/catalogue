@@ -8,6 +8,13 @@
         <div class="nav_item">
             <a href="{{route("shop")}}">Shop Page</a>
         </div>
+        @if(\Illuminate\Support\Facades\Auth::check())
+            @if(\Illuminate\Support\Facades\Auth::user()->role==="admin")
+                <div class="nav_item">
+                    <a href="{{route("admin.shop")}}">Edit Shop</a>
+                </div>
+            @endif
+        @endif
     </nav>
 </header>
 <script>
