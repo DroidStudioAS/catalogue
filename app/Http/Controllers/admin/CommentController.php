@@ -13,4 +13,10 @@ class CommentController extends Controller
 
         return view("admin.admin_dash", compact("comments"));
     }
-}
+    public function toggleCommentStatus(CommentModel $comment){
+        $statusToSet = $comment->status==="pending" ? "approved":"pending";
+
+        $comment->update(["status"=>$statusToSet]);
+        return redirect()->back();
+    }
+    }

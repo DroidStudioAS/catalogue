@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [\App\Http\Controllers\HomeController::class,"index"]);
 Route::post("/add/comment",[\App\Http\Controllers\CommentController::class,"addComment"])->name("add.comment");
+
 Route::get("/admin", [\App\Http\Controllers\admin\CommentController::class, "index"]);
+Route::post("/admin/comment/{comment}",[\App\Http\Controllers\admin\CommentController::class, "toggleCommentStatus"])->name("admin.comment");
 
 Auth::routes();
 
