@@ -17,5 +17,10 @@ class ProductModel extends Model
     public function comments(){
         return $this->hasMany(CommentModel::class, "product_id","id");
     }
+    public function approvedComments ()
+    {
+        return $this->hasMany(CommentModel::class, "product_id","id")->where(["status"=>"approved"]);
+
+    }
 
 }

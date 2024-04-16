@@ -17,7 +17,7 @@
                     Show Comments
                 </div>
                 <div id="{{$product->id . "commentContainer"}}" class="comments">
-                    @foreach($product->comments as $comment)
+                    @foreach($product->approvedComments as $comment)
                     <div class="comment">
                         <div class="comment_signature">
                             <p>{{$comment->name}} {{$comment->email}}</p>
