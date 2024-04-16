@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="action_buttons">
-                    <div onclick="displayComments({{$product->id}})" class="comments_toggle">
+                    <div id="{{"displayComments" . $product->id}}" onclick="displayComments({{$product->id}})" class="comments_toggle">
                         Show Comments
                     </div>
                     <div id="{{$product->id . "commentContainer"}}" class="comments">
@@ -73,7 +73,14 @@
                 $('#priceRange').text($(this).val() + "$");
         });
         function displayComments(id){
+            if($("#"+id+"commentContainer").css("display")==="flex"){
+                $("#"+id+"commentContainer").css("display","none");
+                $("#displayComments"+id).text("Show Comments")
+                return;
+            }
             $("#"+id+"commentContainer").css("display","flex");
+            $("#displayComments"+id).text("Hide Comments")
+
         }
         let filtersExpanded = false;
         function toggleFilters(){
