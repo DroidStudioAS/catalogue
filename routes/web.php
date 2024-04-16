@@ -34,6 +34,8 @@ Route::middleware(["auth", AdminMiddleware::class])
         Route::get("/shop",[\App\Http\Controllers\admin\ShopController::class,"index"])->name(".shop");
         Route::post("/shop/delete/{product}", [\App\Http\Controllers\admin\ShopController::class,"deleteProduct"])->name(".shop.delete");
         Route::get("/shop/edit-page/{product}",[\App\Http\Controllers\admin\ShopController::class,"pushToEditPage"])->name(".shop.push.edit");
+        Route::post("/shop/edit/{product}",[\App\Http\Controllers\admin\ShopController::class,"editProduct"])->name(".shop.edit");
+
     });
 
 Auth::routes();
