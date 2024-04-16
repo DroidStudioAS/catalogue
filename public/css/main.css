@@ -34,6 +34,8 @@ html, body {
     align-items: center;
     width: 25vw;
     margin: 20px;
+    font-family: "Roboto Condensed", sans-serif;
+
 }
 .product_content{
     padding: 10px;
@@ -78,7 +80,7 @@ html, body {
     font-family: "Inconsolata", monospace;
 
 }
-.comment_even{
+.comment_even, .comment_uneven{
     width: 25vw;
     display: flex;
     flex-flow: column nowrap;
@@ -86,19 +88,14 @@ html, body {
     align-items: center;
     background-color: #718096;
     margin: 5px;
-    border-radius: 25px 25px 0 25px;
     color: white;
 }
+.comment_even{
+    border-radius: 25px 25px 0 25px;
+
+}
 .comment_uneven{
-    width: 25vw;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: #718096;
-    margin: 5px;
     border-radius: 25px 25px 25px 0;
-    color: white;
 }
 .comment_form{
     padding: 30px;
