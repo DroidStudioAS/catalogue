@@ -88,14 +88,34 @@
     position: absolute;
     right: 1vw;
     width: 50px;
+    z-index: 2;
 }
 .navigation{
     position: fixed;
-    top: 120px;
+    top: 0;
     right: -300px;
     width: 300px;
-    background-color: purple;
     height: 100vh;
+    background-color: #edf2f7;
+    color: white;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.nav_item{
+    width: 200px;
+    padding: 12px;
+    border-radius: 8px 12px 8px 12px;
+    border: 2px solid #0a58ca;
+    text-align: center;
+    background-color: #1a202c;
+    margin: 30px;
+    font-size: x-large;
+}
+.nav_item :visited{
+    text-decoration: none;
+    color: white;
 }
 /****End Of Global Styles*****/
 
