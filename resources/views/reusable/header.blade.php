@@ -1,5 +1,5 @@
 <header class="header">
-    <h1 class="app_title">SladIT Car Saloon</h1>
+    <h1 class="app_title">SladIT Car Catalogue</h1>
     <img onclick="toggleMenu()" class="menu_button" src="/res/icon_nav.png">
     <nav class="navigation">
         <div class="nav_item">
