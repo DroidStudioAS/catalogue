@@ -62,6 +62,7 @@ html, body {
     border-radius: 8px;
     text-align: center;
     color: white;
+    width: 23vw;
 }
 .comments{
     display: none;
