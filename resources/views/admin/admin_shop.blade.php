@@ -15,13 +15,13 @@
                     </div>
                 </div>
                 <div class="button_container">
-                    <form>
+                    <form action="{{route("admin.shop.push.edit", ["product"=>$product])}}" method="GET">
                         {{csrf_field()}}
-                        <button>Edit</button>
+                        <button class="edit_button">Edit</button>
                     </form>
                     <form action="{{route("admin.shop.delete", ["product"=>$product])}}" method="POST">
                         {{csrf_field()}}
-                        <button>Delete</button>
+                        <button class="delete_button">Delete</button>
                     </form>
                 </div>
             </div>

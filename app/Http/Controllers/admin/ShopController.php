@@ -18,4 +18,7 @@ class ShopController extends Controller
         $product->delete();
         return redirect()->back();
     }
+    public function pushToEditPage(ProductModel $product){
+        return view("admin.admin_edit_shop",compact("product"));
+    }
 }
