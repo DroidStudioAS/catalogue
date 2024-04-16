@@ -51,7 +51,9 @@ class ShopController extends Controller
         }
 
         return redirect()->back();
-
-
+    }
+    public function pushToAddPage(){
+        $categories = BrandModel::all();
+        return view("admin.admin_add_product",compact("categories"));
     }
 }

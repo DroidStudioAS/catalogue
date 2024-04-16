@@ -1,5 +1,8 @@
 @extends("layouts.layout")
 @section("content")
+    <form action="{{route("admin.shop.push.add")}}">
+        <button class="input_submit">Add Product</button>
+    </form>
     <h2>Edit Products</h2>
     <div class="product_container">
         @foreach($products as $product)
