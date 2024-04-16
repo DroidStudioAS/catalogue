@@ -75,5 +75,27 @@
 .product_card:hover .action_buttons{
     opacity: 1;
 }
+/**Header**/
+.header{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    height: 120px;
+}
+.menu_button{
+    position: absolute;
+    right: 1vw;
+    width: 50px;
+}
+.navigation{
+    position: fixed;
+    top: 120px;
+    right: -300px;
+    width: 300px;
+    background-color: purple;
+    height: 100vh;
+}
 /****End Of Global Styles*****/
 
