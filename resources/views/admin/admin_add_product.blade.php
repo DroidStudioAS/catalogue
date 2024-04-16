@@ -10,7 +10,7 @@
             </ul>
         </div>
     @endif
-    <form class="edit_form" action="" method="POST"  enctype="multipart/form-data">
+    <form class="edit_form" action="{{route("admin.shop.add")}}" method="POST"  enctype="multipart/form-data">
         {{csrf_field()}}
         <label for="brand_id">Brand</label>
         <select name="brand_id" class="input_text">

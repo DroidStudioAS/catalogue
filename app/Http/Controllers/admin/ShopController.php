@@ -56,4 +56,25 @@ class ShopController extends Controller
         $categories = BrandModel::all();
         return view("admin.admin_add_product",compact("categories"));
     }
+    public function addProduct(Request $request){
+        $request->validate([
+            "brand_id"=>"required|int|exists:brands,id",
+            "name"=>"required|string",
+            "description"=>"required|string|max:400",
+            "price"=>"required|int|gte:1",
+            "image_name"=>'required|mimes:jpeg'
+        ]);
+        $product = ProductModel::create($request->except("_token","image_name"));
+        //upload file
+        $file = $request->file('image_name');
+        if ($file) {
+            $directory = 'res/products/' . $product->brand->id ."/". Str::slug($product->name);
+
+            $filename = 'main.jpeg';
+
+            Storage::disk('public')->putFileAs($directory, $file, $filename);
+        }
+
+        return redirect()->back();
+    }
 }
