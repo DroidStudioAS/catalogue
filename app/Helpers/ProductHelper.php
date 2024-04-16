@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 class ProductHelper
 {
 public static function buildImagePath(ProductModel $product){
-    return "storage/res/products/".$product->brand->id."/".Str::slug($product->name)."/main.jpeg";
+    return asset("storage/res/products/".$product->brand->id."/".Str::slug($product->name)."/main.jpeg");
 }
 
 }

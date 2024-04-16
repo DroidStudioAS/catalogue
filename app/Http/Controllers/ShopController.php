@@ -22,6 +22,18 @@ class ShopController extends Controller
     }
 
     public function search(Request $request){
-        dd($request->all());
+        $categories = BrandModel::all();
+
+        $highestPrice = ProductModel::orderBy("price","desc")->first()->price;
+        $lowestPrice = ProductModel::orderBy("price","asc")->first()->price;
+
+        $minMaxPrice = [$lowestPrice, $highestPrice];
+
+        $products = ProductModel::where(["brand_id"=>$request->brand_id])
+            ->where("name", "LIKE", "%$request->name%")
+            ->where("description", "LIKE", "%$request->description%")
+            ->where("price", "<=", "$request->price")->get();
+
+        return view("shop", compact("products", "categories", "minMaxPrice"));
     }
 }
