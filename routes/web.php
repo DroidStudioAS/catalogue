@@ -16,9 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", [\App\Http\Controllers\HomeController::class,"index"])->name("home");
 Route::post("/add/comment",[\App\Http\Controllers\CommentController::class,"addComment"])->name("add.comment");
 
-Route::get("/admin", [\App\Http\Controllers\admin\CommentController::class, "index"])->name("admin");
-Route::post("/admin/comment/{comment}",[\App\Http\Controllers\admin\CommentController::class, "toggleCommentStatus"])->name("admin.comment");
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+//admin routes
+Route::middleware(["auth", \App\Http\Middleware\admin\AdminMiddleware::class])
+    ->prefix("/admin")
+    ->group(function (){
+        Route::get("", [\App\Http\Controllers\admin\CommentController::class, "index"])->name("admin");
+        Route::post("/comment/{comment}",[\App\Http\Controllers\admin\CommentController::class, "toggleCommentStatus"])->name("admin.comment");
+    });
