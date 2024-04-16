@@ -1,4 +1,6 @@
 @extends("layouts.layout")
 @section("content")
-    admin panel
+    @foreach($comments as $comment)
+        <p>{{$comment}}</p>
+    @endforeach
 @endsection
