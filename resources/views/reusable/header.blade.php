@@ -6,7 +6,7 @@
             <a href="{{route("home")}}">Home</a>
         </div>
         <div class="nav_item">
-            <a>Shop Page</a>
+            <a href="{{route("shop")}}">Shop Page</a>
         </div>
     </nav>
 </header>

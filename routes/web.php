@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ShopController;
+use App\Http\Middleware\admin\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,11 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //userRoutes
-Route::get("/", [\App\Http\Controllers\HomeController::class,"index"])->name("home");
-Route::post("/add/comment",[\App\Http\Controllers\CommentController::class,"addComment"])->name("add.comment");
-
+Route::get("/", [HomeController::class,"index"])->name("home");
+Route::post("/add/comment",[CommentController::class,"addComment"])->name("add.comment");
+Route::get("/shop", [ShopController::class, "index"])->name("shop");
 //admin routes
-Route::middleware(["auth", \App\Http\Middleware\admin\AdminMiddleware::class])
+Route::middleware(["auth", AdminMiddleware::class])
     ->prefix("/admin")
     ->name("admin")
     ->group(function (){
