@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [\App\Http\Controllers\HomeController::class,"index"]);
 Route::post("/add/comment",[\App\Http\Controllers\CommentController::class,"addComment"])->name("add.comment");
+Route::get("/admin", function (){
+    return view("admin.admin_dash");
+});
 
 Auth::routes();
 
