@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AddCommentRequest;
 use App\Models\CommentModel;
 use App\Models\ProductModel;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    public function addComment(AddCommentRequest $request): \Illuminate\Http\RedirectResponse
+    public function addComment(AddCommentRequest $request): RedirectResponse
     {
 
         CommentModel::create($request->except("_token"));

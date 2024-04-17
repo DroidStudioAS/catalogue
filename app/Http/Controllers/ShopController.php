@@ -6,6 +6,7 @@ use App\Models\BrandModel;
 use App\Models\ProductModel;
 use App\Repositories\ProductRepository;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ShopController extends Controller
 {
@@ -15,7 +16,7 @@ class ShopController extends Controller
         $this->productRepo=new ProductRepository();
     }
 
-    public function index()
+    public function index():View
     {
         $products = ProductModel::all();
         $categories = BrandModel::all();
@@ -25,7 +26,7 @@ class ShopController extends Controller
         return view("shop", compact("products", "categories", "minMaxPrice"));
     }
 
-    public function search(Request $request)
+    public function search(Request $request) :View
     {
         $categories = BrandModel::all();
         $minMaxPrice = $this->productRepo->getProductsMinMaxPrice();
