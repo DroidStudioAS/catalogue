@@ -48,7 +48,14 @@ class ShopController extends Controller
     public function editProduct(ProductModel $product, EditProductRequest $request): RedirectResponse
     {
         //edit all except image image
+        if($request->name!==null) {
+            //rename directory
+            if (Storage::exists("/public/res/products/" . $product->brand->id . "/" . Str::slug($product->name))) {
+               Storage::move("/public/res/products/" . $product->brand->id . "/" . Str::slug($product->name), "/public/res/products/" . $product->brand->id . "/" . Str::slug($request->name));
+          }
+        }
         $product->update($request->except("_token","image_name"));
+
         //handle image upload
         $file = $request->file('image_name');
 
