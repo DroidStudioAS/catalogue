@@ -34,7 +34,11 @@ class ShopController extends Controller
     /*****CUD Methods****/
     public function deleteProduct(ProductModel $product)
     {
+        $directoryToDelete = "/public/res/products/".$product->brand->id."/".Str::slug($product->name);
+        Storage::deleteDirectory($directoryToDelete);
+
         $product->delete();
+
         return redirect()->back();
     }
     public function editProduct(ProductModel $product, EditProductRequest $request){
