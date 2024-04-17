@@ -52,7 +52,7 @@ class ShopController extends Controller
             ProductHelper::updateProductImage($file,$product);
         }
 
-        return redirect()->back();
+        return redirect()->back()->with("message", "Product Updated");
     }
 
     public function addProduct(AddProductRequest $request){

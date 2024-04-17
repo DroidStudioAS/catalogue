@@ -1,6 +1,9 @@
 @extends("layouts.layout")
 @section("content")
     <h2>Editing {{$product->brand->name}} {{$product->name}}</h2>
+    @if(session()->has("message"))
+        <h3>{{session("message")}}</h3>
+    @endif
     @if($errors->any())
     <div class="alert alert-danger">
         <ul>
