@@ -9,9 +9,10 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    public function addComment(AddCommentRequest $request){
+    public function addComment(AddCommentRequest $request)
+    {
 
-        $comment = CommentModel::create($request->except("_token"));
+        CommentModel::create($request->except("_token"));
 
         return redirect()->back()->with("message", "Comment Posted Successfully... Pending Approval");
     }

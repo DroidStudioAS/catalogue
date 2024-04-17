@@ -15,7 +15,8 @@ class CommentController extends Controller
         $this->commentRepo=new CommentRepository();
     }
 
-    public function index(){
+    public function index()
+    {
         $comments = CommentModel::all();
 
         return view("admin.admin_dash", compact("comments"));
@@ -23,19 +24,22 @@ class CommentController extends Controller
     /*
      * This method Approves/Bans comments
      */
-    public function toggleCommentStatus(CommentModel $comment){
+    public function toggleCommentStatus(CommentModel $comment)
+    {
         $statusToSet = $comment->status==="pending" ? "approved":"pending";
 
         $comment->update(["status"=>$statusToSet]);
 
         return redirect()->back();
     }
-    public function deleteComment(CommentModel $comment){
+    public function deleteComment(CommentModel $comment)
+    {
         $comment->delete();
 
         return redirect()->back();
     }
-    public function filterComments(Request $request){
+    public function filterComments(Request $request)
+    {
         $status = $request->status===null ? "" : $request->status;
 
         $comments = $this->commentRepo->searchComments($request,$status);
@@ -43,4 +47,4 @@ class CommentController extends Controller
         return view("admin.admin_dash", compact("comments"));
     }
 
-    }
+}

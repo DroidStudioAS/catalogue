@@ -42,7 +42,8 @@ class ShopController extends Controller
 
         return redirect()->back()->with("message","deleted {$product->brand->name} {$product->name}");
     }
-    public function editProduct(ProductModel $product, EditProductRequest $request){
+    public function editProduct(ProductModel $product, EditProductRequest $request)
+    {
         //edit all except image image
         $product->update($request->except("_token","image_name"));
         //handle image upload
@@ -55,7 +56,8 @@ class ShopController extends Controller
         return redirect()->back()->with("message", "Product Updated");
     }
 
-    public function addProduct(AddProductRequest $request){
+    public function addProduct(AddProductRequest $request)
+    {
         $product = ProductModel::create($request->except("_token","image_name"));
         //upload file
         $file = $request->file('image_name');
