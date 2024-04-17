@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SearchProductsRequest;
 use App\Models\BrandModel;
 use App\Models\ProductModel;
 use App\Repositories\ProductRepository;
@@ -26,7 +27,7 @@ class ShopController extends Controller
         return view("shop", compact("products", "categories", "minMaxPrice"));
     }
 
-    public function search(Request $request) :View
+    public function search(SearchProductsRequest $request) :View
     {
         $categories = BrandModel::all();
         $minMaxPrice = $this->productRepo->getProductsMinMaxPrice();

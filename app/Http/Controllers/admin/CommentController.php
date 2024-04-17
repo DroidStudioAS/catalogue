@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SearchCommentsRequest;
 use App\Models\CommentModel;
 use App\Repositories\CommentRepository;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -24,7 +26,7 @@ class CommentController extends Controller
     /*
      * This method Approves/Bans comments
      */
-    public function toggleCommentStatus(CommentModel $comment): \Illuminate\Http\RedirectResponse
+    public function toggleCommentStatus(CommentModel $comment): RedirectResponse
     {
         $statusToSet = $comment->status==="pending" ? "approved":"pending";
 
@@ -32,13 +34,13 @@ class CommentController extends Controller
 
         return redirect()->back();
     }
-    public function deleteComment(CommentModel $comment): \Illuminate\Http\RedirectResponse
+    public function deleteComment(CommentModel $comment): RedirectResponse
     {
         $comment->delete();
 
         return redirect()->back();
     }
-    public function filterComments(Request $request)
+    public function filterComments(SearchCommentsRequest $request)
     {
         $status = $request->status===null ? "" : $request->status;
 
