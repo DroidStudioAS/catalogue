@@ -51,19 +51,4 @@
         </form>
     </div>
 
-    <script>
-        let filtersExpanded = false;
-        function toggleFilters(){
-            let right = "0px";
-            if(filtersExpanded){
-                right = "-300px";
-            }
-            $(".filters").animate({
-                right:right
-            },500)
-
-            filtersExpanded=!filtersExpanded;
-            console.log(right);
-        }
-    </script>
 @endsection

@@ -12,6 +12,7 @@
     <!--JQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="{{asset("/css/main.css")}}">
+    <script src="{{ asset('js/main.js')}}" defer></script>
     <title>@yield("title", "Catalogue")</title>
 </head>
 <body>
