@@ -36,7 +36,7 @@
                         <p>{{$product->price}}$</p>
                     </div>
                 </div>
-                <div class="action_buttons">
+                <div id="{{$product->id}}.ActionButtons" class="action_buttons">
                     <div id="{{"displayComments" . $product->id}}" onclick="displayComments({{$product->id}})" class="comments_toggle">
                         Show Comments
                     </div>
@@ -76,14 +76,15 @@
         function displayComments(id){
             if($("#"+id+"commentContainer").css("display")==="flex"){
                 $("#"+id+"commentContainer").css("display","none");
+                $("#"+id+"ActionButtons").removeClass("expanded");
                 $("#displayComments"+id).text("Show Comments")
                 return;
             }
             $("#"+id+"commentContainer").css("display","flex");
+            $("#"+id+"ActionButtons").addClass("expanded");
             $("#displayComments"+id).text("Hide Comments")
 
-        }
-        let filtersExpanded = false;
+        }        let filtersExpanded = false;
         function toggleFilters(){
             let right = "0px";
             if(filtersExpanded){
