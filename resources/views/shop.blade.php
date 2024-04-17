@@ -54,8 +54,8 @@
                                 <p>"{{$comment->comment}}"</p>
                             </div>
                         @endforeach
+                        <h3>Leave A Comment</h3>
                         <form method="POST" action="{{route("add.comment")}}" class="comment_form">
-                            <h4>Leave A Comment</h4>
                             {{csrf_field()}}
                             <input type="hidden" name="product_id" value="{{$product->id}}">
                             <div class="comment_signature">
