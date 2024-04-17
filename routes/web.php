@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//userRoutes
+//user routes
 Route::get("/", [HomeController::class,"index"])->name("home");
 Route::post("/add/comment",[CommentController::class,"addComment"])->name("add.comment");
 Route::controller(ShopController::class)
@@ -50,6 +50,7 @@ Route::middleware(["auth", AdminMiddleware::class])
                 Route::get("","index");
                 Route::get("/edit-page/{product}","pushToEditPage")->name(".push.edit");
                 Route::get("/add-page","pushToAddPage")->name(".push.add");
+
                 Route::post("/delete/{product}", "deleteProduct")->name(".delete");
                 Route::post("/add","addProduct")->name(".add");
                 Route::post("/edit/{product}","editProduct")->name(".edit");
