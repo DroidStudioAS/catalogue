@@ -32,7 +32,7 @@
             </div>
         @endforeach
     </div>
-    <div onclick="toggleFilters()" class="filters_toggle">Search</div>
+    <div onclick="toggleFilters()" class="filters_toggle">Show Filters</div>
 
     <div class="filters">
         <form class="filters" action="{{route("admin.comment.filter")}}" method="GET">

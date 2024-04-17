@@ -4,7 +4,7 @@
     @if(session()->has("message"))
         <h3>{{session("message")}}</h3>
     @endif
-    <div onclick="toggleFilters()" class="filters_toggle">Search</div>
+    <div onclick="toggleFilters()" class="filters_toggle">Show Filters</div>
 
     <div class="filters">
         <form class="filters" action="{{route("shop.search")}}" method="GET">
