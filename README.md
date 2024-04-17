@@ -1,64 +1,64 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1 style="text-align: center">
+Catalogue App, SladIT Technichal Assigment
+</h1>
+<p>In this file you will find: </p>
+<ol>
+    <li>Instructions on how to set up the app on your machine</li>
+    <li>An overview of all the functions available in the app</li>
+</ol>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<h2>1)Setup Guide</h2>
+<p>Follow the next steps:</p>
+<ol>
+    <li>
+        Create a new Database named "catalogue", OR import the database called database.sql from the root directory on this project
+    </li>
+    <li>
+        Create a new file, called .env, in the projects root directory, and copy the contents of .env.example into it (root directory of the project)
+    </li>
+    <li>
+        Run the command "composer install", to install all project dependencies
+    </li>
+    <li>
+        IF YOU IMPORTED THE DATABASE SKIP TO STEP 5). If you did not import it, then:
+        <ol>
+            <li>
+                    Run the command "php artisan migrate"
+            </li>
+            <li>
+            Run The following set of commands IN THE EXACT ORDER, and follow there instructions:
+            <ul>
+            <li>php artisan db:seed --class=adminseeder</li>
+            <li>php artisan db:seed --class=brandseeder</li>
+            <li>php artisan db:seed --class=productseeder</li>
+            <li>php artisan db:seed --class=commentseeder</li>
+            </ul>
+            At this point your database is filled with mock data
+            </li>
+        </ol>
+    </li>
+    <li>
+        Move the res folder, located in the root directory of the project, to the location "storage/app/public"
+    </li>
+    <li>
+        Run the command "php artisan storage:link"
+    </li>
+    <li>Thats All! You can now run php artisan serve, and browse the project fully set up! In the app footer you will find the login link for admins, just make sure you remember the credentials you entered in step 4) If you imported the database, your credentials are: email:admin@mail.com, password:1234</li>
+</ol>
+<h2>2)App Overview</h2>
+    <p>Regular Users can:</p>
+    <ul>
+        <li>Browse products on the homepage, or on the shop page. The homepage displays 9 products, while on the shop page all the products are displayed. The shop page also has a search function, for filtering products, which you can access by clicking the "Show Filters" Button on the right side of the screen</li>
+        <li>When hovering over a product, the show comments button will be displayed. If clicked, it will display all the comments for that product, and at the bottom there is a form where users can leave there own comment</li>
+        <li>ONLY comments approved by the admin will be displayed</li>
+    </ul>
+    <p>Admins can:</p>
+       <ul>
+           <li>Select which comments to approve, by accessing the "comments" section in the app navigation. Comments can also be unapproved (baned) and deleted</li>
+           <li>The Comment section of the website comes with a search function for admins, where they can filter out the comments they want to see</li>
+           <li>Admins also have full access of the website products, being able to delete, edit and create new products, through the "Edit Shop" section of the website (accessible through the navigation)</li>
+            <li>Just keep in mind, only JPEG pictures are supported for the product image</li>
+        </ul>
 
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<h1>Thank you very much for your time</h1>
+    
