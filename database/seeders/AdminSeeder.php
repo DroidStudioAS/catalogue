@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -22,6 +23,22 @@ class AdminSeeder extends Seeder
             die();
         }
         $passwordToSet =  $this->command->getOutput()->ask("What Do You Want There Password To Be?", "12345678");
+        $email = $this->command->getOutput()->ask("Set An Email For 1 Admin For Easier Access??", "admin@mail.com");
+
+        $validator = Validator::make([
+            "password"=>$passwordToSet,
+            "email"=>$email
+        ],[
+            "password"=>"required|string",
+            "email"=>"required|email"
+        ]);
+
+        if($validator->fails()){
+            foreach ($validator->errors()->all() as $error){
+                $this->command->getOutput()->error($error);
+            }
+            die();
+        }
 
         $faker = Factory::create();
 
@@ -29,7 +46,7 @@ class AdminSeeder extends Seeder
         for($i=0; $i<$numberOfAdmins; $i++){
             User::create([
                 "name"=>$faker->name(),
-                "email"=>$faker->email(),
+                "email"=>$i===0?$email:$faker->email(),
                 "password"=>Hash::make($passwordToSet),
                 "role"=>"admin"
             ]);
