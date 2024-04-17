@@ -26,7 +26,7 @@ class ShopController extends Controller
         $categories = BrandModel::all();
         return view("admin.admin_add_product",compact("categories"));
     }
-    public function pushToEditPage(ProductModel $product)
+    public function pushToEditPage(ProductModel $product): View
     {
         $categories = BrandModel::all();
         return view("admin.admin_edit_shop",compact("product","categories"));
@@ -51,7 +51,8 @@ class ShopController extends Controller
         if($request->name!==null || $request->brand_id!==null) {
             //rename directory
             if (Storage::exists("/public/res/products/" . $product->brand->id . "/" . Str::slug($product->name))) {
-               Storage::move("/public/res/products/" . $product->brand->id . "/" . Str::slug($product->name), "/public/res/products/" . $request->brand_id . "/" . Str::slug($request->name));
+               Storage::move("/public/res/products/" . $product->brand->id . "/" . Str::slug($product->name),
+                   "/public/res/products/" . $request->brand_id . "/" . Str::slug($request->name));
           }
         }
         $product->update($request->except("_token","image_name"));

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    public function addComment(AddCommentRequest $request)
+    public function addComment(AddCommentRequest $request): \Illuminate\Http\RedirectResponse
     {
 
         CommentModel::create($request->except("_token"));
