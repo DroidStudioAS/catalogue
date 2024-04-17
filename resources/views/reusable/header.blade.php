@@ -13,6 +13,9 @@
                 <div class="nav_item">
                     <a href="{{route("admin.shop")}}">Edit Shop</a>
                 </div>
+                <div class="nav_item">
+                    <a href="{{route("admin.comment")}}">Comments</a>
+                </div>
             @endif
         @endif
     </nav>
