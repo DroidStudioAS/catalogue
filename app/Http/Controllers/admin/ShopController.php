@@ -34,12 +34,13 @@ class ShopController extends Controller
     /*****CUD Methods****/
     public function deleteProduct(ProductModel $product)
     {
+        //delete product image from server storage
         $directoryToDelete = "/public/res/products/".$product->brand->id."/".Str::slug($product->name);
         Storage::deleteDirectory($directoryToDelete);
 
         $product->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with("message","deleted {$product->brand->name} {$product->name}");
     }
     public function editProduct(ProductModel $product, EditProductRequest $request){
         //edit all except image image
@@ -62,6 +63,6 @@ class ShopController extends Controller
            ProductHelper::uploadProductImage($file, $product);
         }
 
-        return redirect()->back();
+        return redirect()->back()->with("message","Created {$product->brand->name} {$product->name}");
     }
 }
