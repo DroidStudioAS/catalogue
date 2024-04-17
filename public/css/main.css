@@ -227,8 +227,8 @@ h1, h2, h3, h4, h5, h6{
 
 }
 .comment_card_even, .comment_card_uneven{
-    background-color: #2d3748;
-    color: white;
+    background-color: #edf2f7;
+    color: black;
     width:20vw;
     margin: 30px;
     display: flex;
@@ -237,6 +237,7 @@ h1, h2, h3, h4, h5, h6{
     align-items: center;
     padding: 20px;
     border: 2px solid black;
+    font-family: "Roboto Condensed", sans-serif;
 }
 .comment_card_even{
     border-radius: 25% 25% 0 25%;

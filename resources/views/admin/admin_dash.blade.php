@@ -36,6 +36,7 @@
 
     <div class="filters">
         <form class="filters" action="{{route("admin.comment.filter")}}" method="GET">
+            <label for="status">Status</label>
             <select class="input_text" name="status">
                 <option value="">Any</option>
                 <option value="pending">Pending</option>
