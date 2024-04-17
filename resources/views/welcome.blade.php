@@ -1,5 +1,8 @@
 @extends("layouts.layout")
 @section("content")
+    @if(session()->has("message"))
+        <h3>{{session("message")}}</h3>
+    @endif
     <div class="product_container">
         @foreach($products as $product)
             <div class="product_card">
