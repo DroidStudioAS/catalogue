@@ -6,20 +6,20 @@
     <div class="filters">
         <form class="filters" action="{{route("shop.search")}}" method="GET">
             <label for="brand_id">Brand</label>
-            <select name="brand_id" id="brand_id">
+            <select class="input_text" name="brand_id" id="brand_id">
                 @foreach($categories as $category)
                     <option value="{{$category->id}}">{{$category->name}}</option>
                 @endforeach
             </select>
             <label for="name">Model</label>
-            <input type="text" name="name" id="name">
+            <input class="input_text" type="text" name="name" id="name">
             <label for="description">Description</label>
-            <textarea name="description" placeholder="description">
+            <textarea class="input_textarea" name="description" placeholder="description">
             </textarea>
             <label for="price">Price</label>
             <input id="price" type="range" name="price" min="{{$minMaxPrice[0]}}" max="{{$minMaxPrice[1]}}">
             <span id="priceRange"></span>
-            <input type="submit">
+            <input class="input_submit" type="submit">
         </form>
     </div>
 
@@ -36,7 +36,7 @@
                         <p>{{$product->price}}$</p>
                     </div>
                 </div>
-                <div id="{{$product->id}}.ActionButtons" class="action_buttons">
+                <div id="{{$product->id . "ActionButtons"}}" class="action_buttons">
                     <div id="{{"displayComments" . $product->id}}" onclick="displayComments({{$product->id}})" class="comments_toggle">
                         Show Comments
                     </div>
