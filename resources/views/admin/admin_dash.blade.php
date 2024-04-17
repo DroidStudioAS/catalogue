@@ -11,7 +11,7 @@
                 <p>Status: {{$comment->status}}</p>
 
                 <div class="button_container">
-                    <form action="{{route("admin.comment",["comment"=>$comment])}}" method="POST">
+                    <form action="{{route("admin.comment.toggle",["comment"=>$comment])}}" method="POST">
                         {{csrf_field()}}
                         <button class="input_submit">
                             @if($comment->status==="pending")

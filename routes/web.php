@@ -19,24 +19,42 @@ use Illuminate\Support\Facades\Route;
 //userRoutes
 Route::get("/", [HomeController::class,"index"])->name("home");
 Route::post("/add/comment",[CommentController::class,"addComment"])->name("add.comment");
-Route::get("/shop", [ShopController::class, "index"])->name("shop");
-Route::get("/shop/search", [ShopController::class,"search"])->name("shop.search");
+Route::controller(ShopController::class)
+    ->name("shop")
+    ->prefix("/shop")
+    ->group(function (){
+        Route::get("", "index");
+        Route::get("/search", "search")->name(".search");
+    });
+
 //admin routes
 Route::middleware(["auth", AdminMiddleware::class])
     ->prefix("/admin")
     ->name("admin")
     ->group(function (){
-        Route::get("", [\App\Http\Controllers\admin\CommentController::class, "index"]);
-        Route::post("/comment/{comment}",[\App\Http\Controllers\admin\CommentController::class, "toggleCommentStatus"])->name(".comment");
-        Route::post("/comment/delete/{comment}",[\App\Http\Controllers\admin\CommentController::class,"deleteComment"])->name(".comment.delete");
-        Route::get("/comment/filter", [\App\Http\Controllers\admin\CommentController::class, "filterComments"])->name(".comment.filter");
+        Route::controller(\App\Http\Controllers\admin\CommentController::class)
+        ->prefix("/comment")
+        ->name(".comment")
+        ->group(function (){
+            Route::get("", "index");
+            Route::get("/filter","filterComments")->name(".filter");
 
-        Route::get("/shop",[\App\Http\Controllers\admin\ShopController::class,"index"])->name(".shop");
-        Route::post("/shop/delete/{product}", [\App\Http\Controllers\admin\ShopController::class,"deleteProduct"])->name(".shop.delete");
-        Route::get("/shop/edit-page/{product}",[\App\Http\Controllers\admin\ShopController::class,"pushToEditPage"])->name(".shop.push.edit");
-        Route::get("/shop/add-page",[\App\Http\Controllers\admin\ShopController::class,"pushToAddPage"])->name(".shop.push.add");
-        Route::post("/shop/add",[\App\Http\Controllers\admin\ShopController::class,"addProduct"])->name(".shop.add");
-        Route::post("/shop/edit/{product}",[\App\Http\Controllers\admin\ShopController::class,"editProduct"])->name(".shop.edit");
+            Route::post("/{comment}","toggleCommentStatus")->name(".toggle");
+            Route::post("/delete/{comment}","deleteComment")->name(".delete");
+        });
+
+        Route::controller(\App\Http\Controllers\admin\ShopController::class)
+            ->prefix("/shop")
+            ->name(".shop")
+            ->group(function (){
+                Route::get("","index");
+                Route::get("/edit-page/{product}","pushToEditPage")->name(".push.edit");
+                Route::get("/add-page","pushToAddPage")->name(".push.add");
+                Route::post("/delete/{product}", "deleteProduct")->name(".delete");
+                Route::post("/add","addProduct")->name(".add");
+                Route::post("/edit/{product}","editProduct")->name(".edit");
+            });
+
 
     });
 

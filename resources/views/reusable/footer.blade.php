@@ -6,7 +6,7 @@
         @if(request()->is('admin*'))
             <p><a href="{{route('home')}}">Back To Home</a></p>
         @else
-            <p><a href="{{route('admin')}}">Admin Panel</a></p>
+            <p><a href="{{route('admin.comment')}}">Admin Panel</a></p>
         @endif
             <a href="{{ route('logout')  }}"
                onclick="event.preventDefault();
