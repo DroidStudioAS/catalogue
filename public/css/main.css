@@ -62,6 +62,9 @@ html, body {
     opacity: 0;
     transition: opacity 1s;
 }
+.expanded{
+    opacity:1;
+}
 
 /*Comments Start*/
 .comments_toggle{
@@ -79,8 +82,8 @@ html, body {
     justify-content: center;
     align-items: center;
     font-family: "Inconsolata", monospace;
-
 }
+
 .comment_even, .comment_uneven{
     width: 25vw;
     display: flex;
