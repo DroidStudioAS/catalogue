@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
 
             $table->unsignedBigInteger("brand_id");
             $table->string("name",25);
-            $table->string("image_path", 15)->default("main.png");
+            $table->string("image_path", 15)->default("main.jpeg");
             $table->string("description", 120);
 
             $table->foreign("brand_id")->references("id")->on("brands")->onDelete("cascade");
