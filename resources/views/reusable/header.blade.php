@@ -12,6 +12,16 @@
             <a href="{{route("shop")}}">Shop Page</a>
         </div>
         @if(\Illuminate\Support\Facades\Auth::check())
+            <div class="nav_item">
+                <a href="{{ route('logout')  }}"
+                   onclick="event.preventDefault();
+                 document.getElementById('logout-form').submit();">
+                    Logout
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </div>
             @if(\Illuminate\Support\Facades\Auth::user()->role==="admin")
                 <div class="nav_item">
                     <a href="{{route("admin.shop")}}">Edit Shop</a>
