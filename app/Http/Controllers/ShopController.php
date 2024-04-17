@@ -30,6 +30,7 @@ class ShopController extends Controller
     public function search(SearchProductsRequest $request) :View
     {
         $categories = BrandModel::all();
+
         $minMaxPrice = $this->productRepo->getProductsMinMaxPrice();
 
         $brand = $request->brand_id===null? "" : $request->brand_id;

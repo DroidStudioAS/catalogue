@@ -16,10 +16,10 @@ class ProductRepository
 
     public function getProductsMinMaxPrice()
     {
-        $highestPrice = ProductModel::orderBy("price","desc")->first()->price;
-        $lowestPrice = ProductModel::orderBy("price","asc")->first()->price;
-
-        return [$lowestPrice, $highestPrice];
+        return [
+            ProductModel::orderBy("price","asc")->first()->price,
+            ProductModel::orderBy("price","desc")->first()->price
+        ];
     }
 
     public function searchProducts(Request $request, $brand)
