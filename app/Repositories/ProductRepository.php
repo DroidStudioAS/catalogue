@@ -24,12 +24,10 @@ class ProductRepository
 
     public function searchProducts(Request $request, $brand)
     {
-        $this->productModel= ProductModel::where("brand_id", "LIKE", "%$brand%")
+        return ProductModel::where("brand_id", "LIKE", "%$brand%")
             ->where("name", "LIKE", "%$request->name%")
             ->where("description", "LIKE", "%$request->description%")
             ->where("price", "<=", "$request->price")
             ->get();
-
-        return $this->productModel;
     }
 }
