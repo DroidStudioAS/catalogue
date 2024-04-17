@@ -20,17 +20,20 @@ class ShopController extends Controller
 
         return view("admin.admin_shop", compact("products"));
     }
-    public function pushToAddPage(){
+    public function pushToAddPage()
+    {
         $categories = BrandModel::all();
         return view("admin.admin_add_product",compact("categories"));
     }
-    public function pushToEditPage(ProductModel $product){
+    public function pushToEditPage(ProductModel $product)
+    {
         $categories = BrandModel::all();
         return view("admin.admin_edit_shop",compact("product","categories"));
     }
 
     /*****CUD Methods****/
-    public function deleteProduct(ProductModel $product){
+    public function deleteProduct(ProductModel $product)
+    {
         $product->delete();
         return redirect()->back();
     }
@@ -39,8 +42,9 @@ class ShopController extends Controller
         $product->update($request->except("_token","image_name"));
         //handle image upload
         $file = $request->file('image_name');
+
         if ($file) {
-            ProductHelper::uploadProductImage($file,$product);
+            ProductHelper::updateProductImage($file,$product);
         }
 
         return redirect()->back();
@@ -51,9 +55,7 @@ class ShopController extends Controller
         //upload file
         $file = $request->file('image_name');
         if ($file) {
-            $directory = 'res/products/' . $product->brand->id ."/". Str::slug($product->name);
-            $filename = 'main.jpeg';
-            Storage::disk('public')->putFileAs($directory, $file, $filename);
+           ProductHelper::uploadProductImage($file, $product);
         }
 
         return redirect()->back();
