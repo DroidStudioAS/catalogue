@@ -11,7 +11,6 @@ function toggleFilters(){
     },500)
 
     filtersExpanded=!filtersExpanded;
-    console.log(right);
 }
 function toggleMenu(){
     let right = "0px";
