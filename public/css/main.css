@@ -256,5 +256,19 @@ html, body {
     justify-content: center;
     align-items: center;
 }
+.edit_button, .delete_button{
+    padding: 8px;
+    border-radius: 8px 12px 8px 12px;
+    margin: 5px;
+    color: white;
+
+}
+.edit_button{
+    background-color: #198754;
+}
+.delete_button{
+    background-color: red;
+
+}
 /****End Of Global Styles*****/
 

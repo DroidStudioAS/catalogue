@@ -13,7 +13,7 @@
                 <div class="button_container">
                     <form action="{{route("admin.comment",["comment"=>$comment])}}" method="POST">
                         {{csrf_field()}}
-                        <button>
+                        <button class="input_submit">
                             @if($comment->status==="pending")
                                 Approve Comment
                             @else
@@ -23,7 +23,7 @@
                     </form>
                     <form action="{{route("admin.comment.delete",["comment"=>$comment])}}" method="POST">
                         {{csrf_field()}}
-                        <button>
+                        <button class="input_submit">
                             Delete Comment
                         </button>
                     </form>
