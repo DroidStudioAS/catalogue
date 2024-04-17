@@ -197,6 +197,7 @@ h1, h2, h3, h4, h5, h6{
     background-color: #1a202c;
     margin: 30px;
     font-size: x-large;
+    font-family: "Roboto Condensed", sans-serif;
 }
 .nav_item :visited{
     text-decoration: none;
@@ -255,14 +256,11 @@ h1, h2, h3, h4, h5, h6{
     resize: none;
     width: 200px;
     height: 10vh;
-
-    padding: 15px;
-    background-color: #7b899d;
-    border-bottom: 2px solid white;
-    color: white;
-    border-radius: 8px;
     margin-bottom: 8px;
+    border-radius: 8px;
+    text-align: start;
 }
+
 .edit_form{
     display: flex;
     flex-flow: column nowrap;
