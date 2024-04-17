@@ -4,15 +4,6 @@
     @if(session()->has("message"))
         <h3>{{session("message")}}</h3>
     @endif
-    @if($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
     <form class="edit_form" action="{{route("admin.shop.add")}}" method="POST"  enctype="multipart/form-data">
         {{csrf_field()}}
         <label for="brand_id">Brand</label>
