@@ -7,6 +7,7 @@
         <form class="filters" action="{{route("shop.search")}}" method="GET">
             <label for="brand_id">Brand</label>
             <select class="input_text" name="brand_id" id="brand_id">
+                <option value="">All</option>
                 @foreach($categories as $category)
                     <option value="{{$category->id}}">{{$category->name}}</option>
                 @endforeach

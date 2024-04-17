@@ -27,13 +27,11 @@ class ShopController extends Controller
 
     public function search(Request $request){
         $categories = BrandModel::all();
-
         $minMaxPrice = $this->productRepo->getProductsMinMaxPrice();
 
-        $products = ProductModel::where(["brand_id"=>$request->brand_id])
-            ->where("name", "LIKE", "%$request->name%")
-            ->where("description", "LIKE", "%$request->description%")
-            ->where("price", "<=", "$request->price")->get();
+        $brand = $request->brand_id===null? "" : $request->brand_id;
+
+        $products =$this->productRepo->searchProducts($request,$brand);
 
         return view("shop", compact("products", "categories", "minMaxPrice"));
     }

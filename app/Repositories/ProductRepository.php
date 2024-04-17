@@ -3,6 +3,8 @@
 namespace App\Repositories;
 
 use App\Models\ProductModel;
+use Illuminate\Http\Request;
+
 
 class ProductRepository
 {
@@ -18,5 +20,16 @@ class ProductRepository
         $lowestPrice = ProductModel::orderBy("price","asc")->first()->price;
 
         return [$lowestPrice, $highestPrice];
+    }
+
+    public function searchProducts(Request $request, $brand)
+    {
+        $this->productModel= ProductModel::where("brand_id", "LIKE", "%$brand%")
+            ->where("name", "LIKE", "%$request->name%")
+            ->where("description", "LIKE", "%$request->description%")
+            ->where("price", "<=", "$request->price")
+            ->get();
+
+        return $this->productModel;
     }
 }
