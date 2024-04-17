@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Helpers\ProductHelper;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AddProductRequest;
 use App\Http\Requests\EditProductRequest;
 use App\Models\BrandModel;
 use App\Models\ProductModel;
@@ -45,14 +46,7 @@ class ShopController extends Controller
         return redirect()->back();
     }
 
-    public function addProduct(Request $request){
-        $request->validate([
-            "brand_id"=>"required|int|exists:brands,id",
-            "name"=>"required|string",
-            "description"=>"required|string|max:400",
-            "price"=>"required|int|gte:1",
-            "image_name"=>'required|mimes:jpeg'
-        ]);
+    public function addProduct(AddProductRequest $request){
         $product = ProductModel::create($request->except("_token","image_name"));
         //upload file
         $file = $request->file('image_name');
