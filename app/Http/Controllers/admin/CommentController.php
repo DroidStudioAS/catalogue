@@ -25,10 +25,14 @@ class CommentController extends Controller
         return redirect()->back();
     }
     public function filterComments(Request $request){
+        $status = $request->status===null ? "" : $request->status;
+
         $comments = CommentModel::where("name","LIKE","%$request->name%")
             ->where("email","LIKE","%$request->email%")
             ->where("comment","LIKE","%$request->comment%")
+            ->where("status", "LIKE", "%$request->status%")
             ->get();
+
 
         return view("admin.admin_dash", compact("comments"));
     }
