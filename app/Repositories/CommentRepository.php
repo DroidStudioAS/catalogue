@@ -11,7 +11,7 @@ class CommentRepository{
     {
         $this->commentModel=new CommentModel();
     }
-    public function searchComments(Request $request, $status)
+    public function searchComments(Request $request, string $status)
     {
         $this->commentModel=CommentModel::where("name","LIKE","%$request->name%")
             ->where("email","LIKE","%$request->email%")

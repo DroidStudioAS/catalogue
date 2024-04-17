@@ -24,7 +24,7 @@ class CommentController extends Controller
     /*
      * This method Approves/Bans comments
      */
-    public function toggleCommentStatus(CommentModel $comment)
+    public function toggleCommentStatus(CommentModel $comment): \Illuminate\Http\RedirectResponse
     {
         $statusToSet = $comment->status==="pending" ? "approved":"pending";
 
@@ -32,7 +32,7 @@ class CommentController extends Controller
 
         return redirect()->back();
     }
-    public function deleteComment(CommentModel $comment)
+    public function deleteComment(CommentModel $comment): \Illuminate\Http\RedirectResponse
     {
         $comment->delete();
 

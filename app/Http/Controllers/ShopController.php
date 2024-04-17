@@ -25,7 +25,8 @@ class ShopController extends Controller
         return view("shop", compact("products", "categories", "minMaxPrice"));
     }
 
-    public function search(Request $request){
+    public function search(Request $request)
+    {
         $categories = BrandModel::all();
         $minMaxPrice = $this->productRepo->getProductsMinMaxPrice();
 
