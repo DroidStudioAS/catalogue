@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Helpers\ProductHelper;
 use App\Http\Controllers\Controller;
 use App\Models\BrandModel;
 use App\Models\ProductModel;
@@ -38,16 +39,7 @@ class ShopController extends Controller
         //handle image upload
         $file = $request->file('image_name');
         if ($file) {
-            $directory = 'res/products/' . $product->brand->id ."/". Str::slug($product->name);
-
-            $filename = 'main.jpeg';
-
-            $existingFilePath = $directory . '/' . $filename;
-            if (Storage::disk('public')->exists($existingFilePath)) {
-                Storage::disk('public')->delete($existingFilePath);
-            }
-
-            Storage::disk('public')->putFileAs($directory, $file, $filename);
+            ProductHelper::uploadProductImage($file,$product);
         }
 
         return redirect()->back();
@@ -69,9 +61,7 @@ class ShopController extends Controller
         $file = $request->file('image_name');
         if ($file) {
             $directory = 'res/products/' . $product->brand->id ."/". Str::slug($product->name);
-
             $filename = 'main.jpeg';
-
             Storage::disk('public')->putFileAs($directory, $file, $filename);
         }
 
