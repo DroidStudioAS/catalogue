@@ -20,10 +20,14 @@ class CommentController extends Controller
 
         return view("admin.admin_dash", compact("comments"));
     }
+    /*
+     * This method Approves/Bans comments
+     */
     public function toggleCommentStatus(CommentModel $comment){
         $statusToSet = $comment->status==="pending" ? "approved":"pending";
 
         $comment->update(["status"=>$statusToSet]);
+
         return redirect()->back();
     }
     public function deleteComment(CommentModel $comment){
@@ -35,7 +39,6 @@ class CommentController extends Controller
         $status = $request->status===null ? "" : $request->status;
 
         $comments = $this->commentRepo->searchComments($request,$status);
-
 
         return view("admin.admin_dash", compact("comments"));
     }
