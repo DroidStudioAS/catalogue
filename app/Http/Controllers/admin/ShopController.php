@@ -8,19 +8,20 @@ use App\Http\Requests\AddProductRequest;
 use App\Http\Requests\EditProductRequest;
 use App\Models\BrandModel;
 use App\Models\ProductModel;
-use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\View\View;
 
 class ShopController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         $products = ProductModel::all();
 
         return view("admin.admin_shop", compact("products"));
     }
-    public function pushToAddPage()
+    public function pushToAddPage(): View
     {
         $categories = BrandModel::all();
         return view("admin.admin_add_product",compact("categories"));
@@ -32,17 +33,19 @@ class ShopController extends Controller
     }
 
     /*****CUD Methods****/
-    public function deleteProduct(ProductModel $product)
+    public function deleteProduct(ProductModel $product): RedirectResponse
     {
         //delete product image from server storage
         $directoryToDelete = "/public/res/products/".$product->brand->id."/".Str::slug($product->name);
-        Storage::deleteDirectory($directoryToDelete);
+        if (Storage::exists($directoryToDelete)) {
+            Storage::deleteDirectory($directoryToDelete);
+        }
 
         $product->delete();
 
         return redirect()->back()->with("message","deleted {$product->brand->name} {$product->name}");
     }
-    public function editProduct(ProductModel $product, EditProductRequest $request)
+    public function editProduct(ProductModel $product, EditProductRequest $request): RedirectResponse
     {
         //edit all except image image
         $product->update($request->except("_token","image_name"));
@@ -56,7 +59,7 @@ class ShopController extends Controller
         return redirect()->back()->with("message", "Product Updated");
     }
 
-    public function addProduct(AddProductRequest $request)
+    public function addProduct(AddProductRequest $request): RedirectResponse
     {
         $product = ProductModel::create($request->except("_token","image_name"));
         //upload file
