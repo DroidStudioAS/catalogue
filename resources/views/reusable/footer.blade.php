@@ -1,5 +1,4 @@
 <footer class="app_footer">
-    <p>Footer</p>
     @if(!\Illuminate\Support\Facades\Auth::check())
         <p><a href="/login">Login As Admin</a></p>
     @else
@@ -17,4 +16,7 @@
                 @csrf
             </form>
     @endif
+        <p>Developed By:</p>
+        <p>Aleksandar Smiljanic &copy;</p>
+
 </footer>

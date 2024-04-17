@@ -33,6 +33,9 @@ h1, h2, h3, h4, h5, h6{
     text-align: center;
     font-family: "Roboto Condensed", sans-serif;
 }
+.app_footer{
+    border-top: 2px solid black;
+}
 
 .product_card{
     display: flex;
