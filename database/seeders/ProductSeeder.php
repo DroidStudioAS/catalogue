@@ -15,6 +15,8 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
+        $this->command->getOutput()->text("=====================Running Product Seeder =====================");
+
         $this->command->getOutput()->progressStart(17);
         foreach (SeederHelper::ProductModels as $index=>$product){
             ProductModel::create([

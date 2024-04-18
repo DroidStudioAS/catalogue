@@ -16,6 +16,8 @@ class CommentSeeder extends Seeder
      */
     public function run()
     {
+        $this->command->getOutput()->text("=====================Running Comment Seeder =====================");
+
         $status="";
         $numOfComments = $this->command->getOutput()->ask("How many comments to you want to generate per post", 3);
         $choiceOfCommentStatus = intval($this->command->getOutput()->ask("Do you want to randomize the status of generated comments, or generate only approved or banned comments? [1,2,3]",0));
@@ -29,6 +31,10 @@ class CommentSeeder extends Seeder
             $status="pending";
         }
         $faker = Factory::create();
+
+
+        $this->command->getOutput()->progressStart($numOfComments*count(ProductModel::all()));
+
         foreach (ProductModel::all() as $product){
             for($i=0; $i<$numOfComments; $i++){
                 if($choiceOfCommentStatus===1){
@@ -41,7 +47,11 @@ class CommentSeeder extends Seeder
                     "comment"=>$faker->paragraph(1),
                     "status"=>$status
                 ]);
+
+                $this->command->getOutput()->progressAdvance(1);
             }
         }
+        $this->command->getOutput()->progressFinish();
+
     }
 }

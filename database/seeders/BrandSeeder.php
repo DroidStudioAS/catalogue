@@ -15,6 +15,8 @@ class BrandSeeder extends Seeder
      */
     public function run()
     {
+        $this->command->getOutput()->text("=====================Running Brand Seeder =====================");
+
         $this->command->getOutput()->progressStart(5);
         foreach (SeederHelper::BrandModels as $key=>$brand){
             BrandModel::create([

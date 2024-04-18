@@ -17,6 +17,8 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
+        $this->command->getOutput()->text("=====================Running Admin Seeder =====================");
+
         $numberOfAdmins = intval($this->command->getOutput()->ask("How Many Admins Do You Want To Create?", 1));
         if ($numberOfAdmins<=0) {
             $this->command->getOutput()->error("Number of admins must be an unsigned integer.");
