@@ -3,7 +3,7 @@
 </head>
 <header class="header">
     <h1 class="app_title">SladIT Car Catalogue</h1>
-    <img onclick="toggleMenu()" class="menu_button" src="/res/icon_nav.png">
+    <img onclick="toggleMenu()" class="menu_button" src="{{asset("/res/icon_nav.png")}}">
     <nav class="navigation">
         <div class="nav_item">
             <a href="{{route("home")}}">Home</a>
