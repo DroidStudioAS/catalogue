@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
 use App\Http\Middleware\admin\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin\CommentController  as AdminCommentController;
+use App\Http\Controllers\admin\ShopController as AdminShopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +34,7 @@ Route::middleware(["auth", AdminMiddleware::class])
     ->prefix("/admin")
     ->name("admin")
     ->group(function (){
-        Route::controller(\App\Http\Controllers\admin\CommentController::class)
+        Route::controller(AdminCommentController::class)
         ->prefix("/comment")
         ->name(".comment")
         ->group(function (){
@@ -43,7 +45,7 @@ Route::middleware(["auth", AdminMiddleware::class])
             Route::post("/delete/{comment}","deleteComment")->name(".delete");
         });
 
-        Route::controller(\App\Http\Controllers\admin\ShopController::class)
+        Route::controller(AdminShopController::class)
             ->prefix("/shop")
             ->name(".shop")
             ->group(function (){
