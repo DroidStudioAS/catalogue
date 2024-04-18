@@ -20,7 +20,12 @@ class CommentSeeder extends Seeder
 
         $status="";
         $numOfComments = $this->command->getOutput()->ask("How many comments to you want to generate per post", 3);
-        $choiceOfCommentStatus = intval($this->command->getOutput()->ask("Do you want to randomize the status of generated comments, or generate only approved or banned comments? [1,2,3]",0));
+
+        $this->command->getOutput()->writeln("1- Random");
+        $this->command->getOutput()->writeln("2- All Approved");
+        $this->command->getOutput()->writeln("3- All Pending Approval");
+
+        $choiceOfCommentStatus = intval($this->command->getOutput()->ask("Do you want to randomize the status of generated comments, or generate only approved or banned comments? [1,2,3]",1));
         if($choiceOfCommentStatus<1 || $choiceOfCommentStatus>3){
             $this->command->getOutput()->error("You must choose 0, 1 or 2");
             die();
