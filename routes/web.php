@@ -20,6 +20,7 @@ use App\Http\Controllers\admin\ShopController as AdminShopController;
 */
 //user routes
 Route::get("/", [HomeController::class,"index"])->name("home");
+
 Route::controller(CommentController::class)
     ->prefix("/comment")
     ->name("comment")
@@ -27,7 +28,6 @@ Route::controller(CommentController::class)
         Route::post("/add","addComment")->name(".add");
         Route::get("/all/{product}","viewAllComments")->name(".view");
     });
-
 
 Route::controller(ShopController::class)
     ->name("shop")

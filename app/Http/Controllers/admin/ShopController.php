@@ -21,18 +21,6 @@ class ShopController extends Controller
 
         return view("admin.admin_shop", compact("products"));
     }
-    public function pushToAddPage(): View
-    {
-        $categories = BrandModel::all();
-        return view("admin.admin_add_product",compact("categories"));
-    }
-    public function pushToEditPage(ProductModel $product): View
-    {
-        $categories = BrandModel::all();
-        return view("admin.admin_edit_shop",compact("product","categories"));
-    }
-
-    /*****CUD Methods****/
     public function deleteProduct(ProductModel $product): RedirectResponse
     {
         //delete product image from server storage
@@ -73,5 +61,16 @@ class ShopController extends Controller
         }
 
         return redirect()->back()->with("message","Created {$product->brand->name} {$product->name}");
+    }
+
+    public function pushToAddPage(): View
+    {
+        $categories = BrandModel::all();
+        return view("admin.admin_add_product",compact("categories"));
+    }
+    public function pushToEditPage(ProductModel $product): View
+    {
+        $categories = BrandModel::all();
+        return view("admin.admin_edit_shop",compact("product","categories"));
     }
 }
