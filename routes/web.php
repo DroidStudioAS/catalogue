@@ -51,6 +51,8 @@ Route::middleware(["auth", AdminMiddleware::class])
 
             Route::post("/{comment}","toggleCommentStatus")->name(".toggle");
             Route::post("/delete/{comment}","deleteComment")->name(".delete");
+            Route::post("/approve/all","approveAll")->name(".approve.all");
+            Route::post("/ban/all","banAll")->name(".ban.all");
         });
 
         Route::controller(AdminShopController::class)

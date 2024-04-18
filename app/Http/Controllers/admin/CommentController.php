@@ -50,4 +50,20 @@ class CommentController extends Controller
         return view("admin.admin_dash", compact("comments"));
     }
 
+    public function approveAll(): RedirectResponse
+    {
+        CommentModel::query()->update(["status"=>"approved"]);
+        $comments = CommentModel::paginate(15);
+        return redirect()->back()->with("message","All Comments Approved");
+
+    }
+
+    public function banAll(): RedirectResponse
+    {
+        CommentModel::query()->update(["status"=>"pending"]);
+        $comments = CommentModel::paginate(15);
+        return redirect()->back()->with("message","All Comments Banned");
+
+    }
+
 }

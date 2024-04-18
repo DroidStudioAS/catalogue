@@ -1,6 +1,17 @@
 @extends("layouts.layout")
 @section("content")
     <h3>Approve Comments</h3>
+    <div class="button_container">
+        <form action="{{route("admin.comment.approve.all")}}" method="POST">
+            {{csrf_field()}}
+            <input type="submit" value="Approve All" class="input_submit">
+        </form>
+        <form action="{{route("admin.comment.ban.all")}}" method="POST">
+            {{csrf_field()}}
+            <input type="submit" value="Ban All" class="input_submit">
+        </form>
+    </div>
+
     <div class="product_container">
         @foreach($comments as $key=>$comment)
             <div class="{{$key%2===0? "comment_card_even" : "comment_card_uneven"}}">
