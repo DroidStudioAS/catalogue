@@ -294,5 +294,33 @@ h1, h2, h3, h4, h5, h6{
     background-color: red;
 
 }
+.pagination_nav{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    font-family: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+    color: black;
+}
+.pagination_nav a:visited{
+    color: black;
+}
+.pagination_nav a:link{
+    color: black;
+}
+.pages{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+
+}
+.pages svg{
+    width: 2vw;
+}
+.pages span{
+    text-align: center;
+
+}
 /****End Of Global Styles*****/
 
