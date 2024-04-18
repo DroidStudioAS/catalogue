@@ -47,14 +47,9 @@ class ShopController extends Controller
     }
     public function editProduct(ProductModel $product, EditProductRequest $request): RedirectResponse
     {
-
         //rename image directory
         if($request->name!==$product->name || intval($request->brand_id)!==$product->brand_id) {
-            //rename directory
-            if (Storage::exists("/public/res/products/" . $product->brand->id . "/" . Str::slug($product->name))) {
-               Storage::move("/public/res/products/" . $product->brand->id . "/" . Str::slug($product->name),
-                   "/public/res/products/" . $request->brand_id . "/" . Str::slug($request->name));
-          }
+            ProductHelper::updateImageDirectory($request, $product);
         }
         $product->update($request->except("_token","image_name"));
 
