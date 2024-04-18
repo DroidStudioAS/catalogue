@@ -24,7 +24,7 @@
                 Run the command <code>php artisan migrate</code>.
             </li>
             <li>
-                Run the following set of commands IN THE EXACT ORDER, and follow their instructions:
+                Run the command <code>php artisan db:seed</code>. This will run the following commands in the exact order:
                 <ul>
                     <li><code>php artisan db:seed --class=adminseeder</code></li>
                     <li><code>php artisan db:seed --class=brandseeder</code></li>

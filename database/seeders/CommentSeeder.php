@@ -32,7 +32,6 @@ class CommentSeeder extends Seeder
         }
         $faker = Factory::create();
 
-
         $this->command->getOutput()->progressStart($numOfComments*count(ProductModel::all()));
 
         foreach (ProductModel::all() as $product){
