@@ -51,6 +51,7 @@
     <li>When hovering over a product, the "show comments" button will be displayed. If clicked, it will display all the comments for that product, and at the bottom, there is a form where users can leave their own comment.</li>
     <li>ONLY comments approved by the admin will be displayed.</li>
 </ul>
+<p>Once you login as an admin, the navigation bar gets 3 additional options (Logout, edit shop and comments)</p>
 <p>Admins can:</p>
 <ul>
     <li>Select which comments to approve by accessing the "comments" section in the app navigation. Comments can also be unapproved (banned) and deleted.</li>
