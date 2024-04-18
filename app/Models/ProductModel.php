@@ -26,7 +26,8 @@ class ProductModel extends Model
 
     public function image_route()
     {
-        return 'res/products/' . $this->brand->id ."/". Str::slug($this->name);
+        return '/public/res/products/' . $this->brand->id ."/". Str::slug($this->name);
     }
+
 
 }

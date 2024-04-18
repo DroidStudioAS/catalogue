@@ -16,14 +16,14 @@ class ProductHelper
 
     public static function updateImageDirectory (EditProductRequest $request, ProductModel $product)
         {
-            if (Storage::exists("/public/res/products/" . $product->brand->id . "/" . Str::slug($product->name))) {
-                Storage::move("/public/res/products/" . $product->brand->id . "/" . Str::slug($product->name),
+            if (Storage::exists($product->image_route())) {
+                Storage::move($product->image_route(),
                     "/public/res/products/" . $request->brand_id . "/" . Str::slug($request->name));
             }
         }
     public static function updateProductImage($file, ProductModel $product)
     {
-        $directory = 'res/products/' . $product->brand->id ."/". Str::slug($product->name);
+        $directory = $product->image_route();
 
         $filename = 'main.jpeg';
 
