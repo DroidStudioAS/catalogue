@@ -47,8 +47,9 @@ class ShopController extends Controller
     }
     public function editProduct(ProductModel $product, EditProductRequest $request): RedirectResponse
     {
-        //edit all except image image
-        if($request->name!==null || $request->brand_id!==null) {
+
+        //rename image directory
+        if($request->name!==$product->name || intval($request->brand_id)!==$product->brand_id) {
             //rename directory
             if (Storage::exists("/public/res/products/" . $product->brand->id . "/" . Str::slug($product->name))) {
                Storage::move("/public/res/products/" . $product->brand->id . "/" . Str::slug($product->name),

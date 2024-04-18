@@ -12,7 +12,7 @@
         Create a new Database named "catalogue", OR import the database called database.sql from the root directory of this project
     </li>
     <li>
-        Create a new file called .env in the project's root directory, and copy the contents of .env.example into it.
+        Create a new file called .env in the project's root directory, and copy the contents of .env.example into it. Make sure the .env matches your local environment (MySql port, db username, password etc.)
     </li>
     <li>
         Run the command <code>composer install</code> to install all project dependencies.

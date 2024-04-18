@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class ProductModel extends Model
 {
@@ -21,6 +22,11 @@ class ProductModel extends Model
     {
         return $this->hasMany(CommentModel::class, "product_id","id")->where(["status"=>"approved"]);
 
+    }
+
+    public function image_route()
+    {
+        return 'res/products/' . $this->brand->id ."/". Str::slug($this->name);
     }
 
 }

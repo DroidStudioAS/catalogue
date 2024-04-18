@@ -8,6 +8,7 @@ use App\Models\CommentModel;
 use App\Repositories\CommentRepository;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class CommentController extends Controller
 {
@@ -40,7 +41,7 @@ class CommentController extends Controller
 
         return redirect()->back()->with("message", "Comment Deleted");
     }
-    public function filterComments(SearchCommentsRequest $request)
+    public function filterComments(SearchCommentsRequest $request) :View
     {
         $status = $request->status===null ? "" : $request->status;
 
