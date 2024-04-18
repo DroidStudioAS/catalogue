@@ -19,6 +19,12 @@
                     </div>
                     <div id="{{$product->id . "commentContainer"}}" class="comments">
                         @foreach($product->approvedComments as $key=>$comment)
+                            @if($key>5)
+                                <form method="GET" action="{{route("comment.view",["product"=>$product])}}">
+                                    <input type="submit" class="input_submit" value="See All Comments">
+                                </form>
+                                @break
+                            @endif
                             <div class="{{$key%2===0? "comment_even":"comment_uneven"}}">
                                 <div class="comment_signature">
                                     <p>{{$comment->name}} {{$comment->email}}</p>

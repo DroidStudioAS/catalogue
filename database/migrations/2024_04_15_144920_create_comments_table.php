@@ -17,7 +17,7 @@ class CreateCommentsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger("product_id");
-            $table->string("name",30);
+            $table->string("name",100);
             $table->string("email", 255);
             $table->text("comment");
             $table->string("status", 20)->default("pending");
