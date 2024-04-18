@@ -54,9 +54,10 @@
 <p>Admins can:</p>
 <ul>
     <li>Select which comments to approve by accessing the "comments" section in the app navigation. Comments can also be unapproved (banned) and deleted.</li>
+    <li>Additionally, admins can mass approve, or mass ban all comments</li>
     <li>The comment section of the website comes with a search function for admins, where they can filter out the comments they want to see.</li>
     <li>Admins also have full access to the website products, being able to delete, edit, and create new products through the "Edit Shop" section of the website (accessible through the navigation).</li>
     <li>Just keep in mind, only JPEG pictures are supported for the product image.</li>
 </ul>
 
-<h1>Thank you very much for your time!</h1>
+<h1>Thanks to the team at SladIT, for giving me this opportunity, and i hope you like this project!</h1>

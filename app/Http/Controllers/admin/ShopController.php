@@ -35,7 +35,6 @@ class ShopController extends Controller
     }
     public function editProduct(ProductModel $product, EditProductRequest $request): RedirectResponse
     {
-
         //handle image upload
         $file = $request->file('image_name');
 
