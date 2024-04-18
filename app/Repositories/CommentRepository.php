@@ -17,7 +17,7 @@ class CommentRepository{
             ->where("email","LIKE","%$request->email%")
             ->where("comment","LIKE","%$request->comment%")
             ->where("status", "LIKE", "%$status%")
-            ->get();
+            ->paginate(15);
 
     }
 

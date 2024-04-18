@@ -20,7 +20,7 @@ class CommentController extends Controller
 
     public function index()
     {
-        $comments = CommentModel::all();
+        $comments = CommentModel::paginate(15);
 
         return view("admin.admin_dash", compact("comments"));
     }

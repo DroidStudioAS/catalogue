@@ -32,6 +32,9 @@
             </div>
         @endforeach
     </div>
+    @if($comments->links() !== null)
+        {{$comments->links()}}
+    @endif
     <div onclick="toggleFilters()" class="filters_toggle">Show Filters</div>
 
     <div class="filters">
