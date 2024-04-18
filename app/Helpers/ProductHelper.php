@@ -24,7 +24,7 @@ class ProductHelper
         }
     public static function updateProductImage($file, ProductModel $product)
     {
-        $directory = $product->image_route();
+        $directory ='res/products/' . $product->brand->id ."/". Str::slug($product->name);
 
         $filename = 'main.jpeg';
 
