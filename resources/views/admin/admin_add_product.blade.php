@@ -1,9 +1,6 @@
 @extends("layouts.layout")
 @section("content")
     <h2>Add A Product</h2>
-    @if(session()->has("message"))
-        <h3>{{session("message")}}</h3>
-    @endif
     <form class="edit_form" action="{{route("admin.shop.add")}}" method="POST"  enctype="multipart/form-data">
         {{csrf_field()}}
         <label for="brand_id">Brand</label>

@@ -18,6 +18,9 @@
 <body>
 @include("reusable.header")
 <div class="content_container">
+    @if(session()->has("message"))
+        <h3>{{session("message")}}</h3>
+    @endif
     @if($errors->any())
         <div class="alert alert-danger">
             <ul>

@@ -1,9 +1,6 @@
 @extends("layouts.layout")
 @section("content")
     <h2>All Products</h2>
-    @if(session()->has("message"))
-        <h3>{{session("message")}}</h3>
-    @endif
     <div onclick="toggleFilters()" class="filters_toggle">Show Filters</div>
 
     <div class="filters">

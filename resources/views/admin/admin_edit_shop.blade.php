@@ -1,9 +1,6 @@
 @extends("layouts.layout")
 @section("content")
     <h2>Editing {{$product->brand->name}} {{$product->name}}</h2>
-    @if(session()->has("message"))
-        <h3>{{session("message")}}</h3>
-    @endif
     <form class="edit_form" action="{{route("admin.shop.edit",["product"=>$product])}}" method="POST"  enctype="multipart/form-data">
         {{csrf_field()}}
         <label for="brand_id">Brand</label>
