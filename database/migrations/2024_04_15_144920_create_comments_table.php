@@ -18,8 +18,8 @@ class CreateCommentsTable extends Migration
 
             $table->unsignedBigInteger("product_id");
             $table->string("name",30);
-            $table->string("email", 320);
-            $table->string("comment", 400);
+            $table->string("email", 255);
+            $table->text("comment");
             $table->string("status", 20)->default("pending");
 
             $table->foreign("product_id")->references("id")->on("products")->onDelete("cascade");

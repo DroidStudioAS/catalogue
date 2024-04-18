@@ -25,9 +25,9 @@ class AddCommentRequest extends FormRequest
     {
         return [
             "product_id"=>"required|int|gte:1",
-            "name"=>"required|string",
-            "email"=>"required|email",
-            "comment"=>"required|string"
+            "name"=>"required|string|max:30",
+            "email"=>"required|email|max:255",
+            "comment"=>"required|string|max:400"
         ];
     }
 }
