@@ -18,7 +18,7 @@ class CommentController extends Controller
 
         return redirect()->back()->with("message", "Comment Posted Successfully... Pending Approval");
     }
-    public static function viewAllComments (ProductModel $product)
+    public static function viewAllComments (ProductModel $product):View
     {
         $comments = $product->approvedComments()->paginate(15);
 
