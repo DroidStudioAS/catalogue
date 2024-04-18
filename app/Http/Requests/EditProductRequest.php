@@ -25,10 +25,10 @@ class EditProductRequest extends FormRequest
     {
         return [
             "brand_id"=>"required|int|exists:brands,id",
-            "name"=>"required|string",
-            "description"=>"required|string|max:400",
+            "name"=>"required|string|max:25",
+            "description"=>"required|string|max:120",
             "price"=>"required|int|gte:1",
-            "image_name"=>'nullable|mimes:jpeg'
+            "image_name"=>'nullable|mimes:jpeg|max:4096'
         ];
     }
 }
