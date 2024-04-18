@@ -10,7 +10,7 @@
             <p>"{{$comment->comment}}"</p>
         </div>
     @endforeach
-    @if($comments->links() !== null)
+    @if(method_exists($comments, "links"))
         {{$comments->links()}}
     @endif
 
