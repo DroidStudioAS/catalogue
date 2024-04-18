@@ -36,7 +36,7 @@ class ShopController extends Controller
     public function deleteProduct(ProductModel $product): RedirectResponse
     {
         //delete product image from server storage
-        $directoryToDelete = "/public/res/products/".$product->brand->id."/".Str::slug($product->name);
+        $directoryToDelete = $product->image_route();
         if (Storage::exists($directoryToDelete)) {
             Storage::deleteDirectory($directoryToDelete);
         }
