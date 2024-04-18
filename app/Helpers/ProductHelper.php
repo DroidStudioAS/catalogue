@@ -14,7 +14,7 @@ class ProductHelper
     {
         return asset("storage/res/products/".$product->brand->id."/".Str::slug($product->name)."/".$product->image_path);
     }
-
+    /***Moves image directory to new location if product name or brand are changed**/
     public static function updateImageDirectory (EditProductRequest $request, ProductModel $product)
         {
             if (Storage::exists($product->image_route())) {
