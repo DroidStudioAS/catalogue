@@ -35,11 +35,6 @@ class ShopController extends Controller
     }
     public function editProduct(ProductModel $product, EditProductRequest $request): RedirectResponse
     {
-        //rename image directory
-        if($request->name!==$product->name || intval($request->brand_id)!==$product->brand_id) {
-            ProductHelper::updateImageDirectory($request, $product);
-        }
-        $product->update($request->except("_token","image_name"));
 
         //handle image upload
         $file = $request->file('image_name');
@@ -47,6 +42,12 @@ class ShopController extends Controller
         if ($file) {
             ProductHelper::updateProductImage($file,$product);
         }
+        //rename image directory
+        if($request->name!==$product->name || intval($request->brand_id)!==$product->brand_id) {
+            ProductHelper::updateImageDirectory($request, $product);
+        }
+        $product->update($request->except("_token","image_name"));
+
 
         return redirect()->back()->with("message", "Product Updated");
     }
